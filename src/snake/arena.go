@@ -41,11 +41,11 @@ func (a *arena) moveSnake() error {
 	}
 
 	if a.snakeLeftArena() {
-		a.snake.die()
+		return a.snake.die()
 	}
 
 	if a.hasFood(a, a.snake.head()) {
-		a.addPoints(a.food.points)
+		go a.addPoints(a.food.points)
 		a.snake.length++
 		a.placeFood()
 	}
@@ -65,7 +65,7 @@ func (a *arena) placeFood() {
 	for{
 		x = rand.Intn(a.width)
 		y = rand.Intn(a.height)
-		if a.isOccupied(coord {x: x, y: y}) {
+		if !a.isOccupied(coord {x: x, y: y}) {
 			break
 		}
 	}

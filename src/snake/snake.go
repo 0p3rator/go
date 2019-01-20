@@ -31,7 +31,7 @@ func newSnake(d direction, b []coord) *snake {
 
 // snake's head use to represent snake
 func (s *snake) head() coord {
-	return s.body[s.length - 1]
+	return s.body[len(s.body) - 1]
 }
 
 // snake die with throw "Died" error
