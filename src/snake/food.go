@@ -11,16 +11,16 @@ type food struct {
 	points, x, y int	
 }
 
-func newFood(e rune, x int, y int) *food {
+func newFood(x int, y int) *food {
 	return &food{
 		points: 10,
-		emoji: getEmoji(e),
+		emoji: getEmoji(),
 		x: x,
 		y: y,
 	}
 }
 
-func getEmoji(e rune) rune {
+func getEmoji() rune {
 	if hasUnicodeSupport() {
 		return randomEmoji()
 	}
